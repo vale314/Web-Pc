@@ -1,20 +1,856 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+  <div class="container">
+      <div class="navbar-translate">
+          <a class="navbar-brand" href="https://www.creative-tim.com">Paper Kit 2 Angular</a>
+          <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+              <span class="navbar-toggler-bar"></span>
+              <span class="navbar-toggler-bar"></span>
+              <span class="navbar-toggler-bar"></span>
+          </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item" *ngIf="!isDocumentation()">
+                  <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
+                      <i class="fa fa-twitter"></i>
+                      <p class="d-lg-none">Twitter</p>
+                  </a>
+              </li>
+              <li class="nav-item" *ngIf="!isDocumentation()">
+                  <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+                      <i class="fa fa-facebook-square"></i>
+                      <p class="d-lg-none">Facebook</p>
+                  </a>
+              </li>
+              <li class="nav-item" *ngIf="!isDocumentation()">
+                  <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+                      <i class="fa fa-instagram"></i>
+                      <p class="d-lg-none">Instagram</p>
+                  </a>
+              </li>
+              <li class="nav-item" *ngIf="!isDocumentation()">
+                  <a class="nav-link" rel="tooltip" title="Star on GitHub" data-placement="bottom" href="https://www.github.com/CreativeTimOfficial/pk2-angular" target="_blank">
+                      <i class="fa fa-github"></i>
+                      <p class="d-lg-none">GitHub</p>
+                  </a>
+              </li>
+              <li class="nav-item" *ngIf="!isDocumentation()">
+                  <a href="http://pk2-angular.creative-tim.com/documentation/tutorial" class="nav-link" target="_blank"><i class="nc-icon nc-book-bookmark"></i> Documentation</a>
+              </li>
+              <!-- <li class="nav-item" *ngIf="isHome()">
+                  <a href="https://www.creative-tim.com/product/paper-kit-2-pro?ref=pk2-free-local" target="_blank" class="btn btn-danger btn-round disabled">Upgrade to Pro</a>
+              </li> -->
+              <li class="nav-item" *ngIf="!isHome()">
+                  <a [routerLink]="['/home']" *ngIf="!isDocumentation()" class="nav-link"><i class="nc-icon nc-layout-11"></i>Components</a>
+                  <a [routerLink]="['/home']" *ngIf="isDocumentation()" class="nav-link">Back to Kit</a>
+              </li>
+              <li class="nav-item" *ngIf="isDocumentation()">
+                  <a href="https://github.com/creativetimofficial/pk-free-angular/issues?ref=pk2-free-local" target="_blank" class="nav-link">Have an issue</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<div class="wrapper">
+  <div class="page-header" style="background-image: url('https://images.pexels.com/photos/962095/pexels-photo-962095.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')">
+      <div class="filter"></div>
+      <div class="content-center">
+        <div class="container">
+          <div class="row">
+                <div class="col-md-6 text-left align-self-center">
+                    <div _ngcontent-c3="" class="title-brand">
+                        <div _ngcontent-c3="" class="angular-logo" *ngIf="logoB">
+                            <img _ngcontent-c3="" alt="" src="assets/img/intel/logo.png">
+                        </div>
+                        <h1 _ngcontent-c3="" class="presentation-title">Paper Kit 2</h1>
+                        <div _ngcontent-c3="" class="fog-low">
+                            <img _ngcontent-c3="" alt="" src="assets/img/fog-low.png">
+                        </div>
+                        <div _ngcontent-c3="" class="fog-low right">
+                            <img _ngcontent-c3="" alt="" src="assets/img/fog-low.png">
+                        </div>
+                    </div>
+                    <h5>Now you have no excuses, it's time to surprise your clients, your competitors, and why not, the world. You probably won't have a better chance to show off all your potential if it's not by designing a website for your own agency or web studio.</h5>
+                    <br>
+                    <div class="buttons">
+                        <a href="#pablo" class="btn btn-danger btn-round  btn-lg">
+                            Read More
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-link btn-just-icon">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-link btn-just-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-link btn-just-icon">
+                            <i class="fa fa-get-pocket"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-md-6 align-self-end" *ngIf="image">
+                        <div class="card-image">
+                            <img class="img" src="assets/img/intel/cortana.png" style="width: 100%; height: -webkit-fill-available; width: auto; height:-moz-available; height:fill-available; width: -moz-available;">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="moving-clouds" style="background-image: url('../assets/img/clouds.png');  "></div>
+  </div>
 
+
+
+  <div class="pricing-3 section-image" style="background-image: url('https://images.pexels.com/photos/311458/pexels-photo-311458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ml-auto mr-auto text-center">
+                <h2 class="title">Pick the best plan for you</h2>
+                <h5 class="description">You have Free Unlimited Updates and Premium Support on each package.</h5>
+            </div>
+        </div>
+        <div class="space-top"></div>
+        <div class="row">
+
+            <div class="col-md-3 ml-auto mr-auto">
+                <div class="card card-pricing" style="background: transparent;">
+                    <div class="card-body">
+                        <h6 class="card-category" style="color: seashell;">Single User</h6>
+                        <div class="card-image">
+                            <a href="#paper-kit">
+                                <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseMedium/ac-aero300-1.png?mtime=20180616103012" alt="Rounded Image" class="img-rounded img-responsive">
+                            </a>
+                        </div>
+                        <h3 class="card-title" style="color: seashell;">$29</h3>
+                        <p class="card-description" style="color: white;">
+                            Here’s a sentence I never expected: we are making...
+                        </p>
+                        <div class="card-footer">
+                            <a href="#pablo" class="btn btn-info btn-round card-link">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mr-auto">
+                <div class="card card-pricing" style="background: transparent;">
+                    <div class="card-body">
+                        <h6 class="card-category"  style="color: seashell;">Small company</h6>
+                        <div class="card-image">
+                            <a href="#paper-kit">
+                                <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseMedium/win-sframe-1.png?mtime=20180616104557" alt="Rounded Image" class="img-rounded img-responsive">
+                            </a>
+                        </div>
+                        <h3 class="card-title"  style="color: seashell;">$59</h3>
+                        <p class="card-description" style="color: white;">
+
+                            Sometimes combining two companies that compete in the same market provides...
+                        </p>
+                        <div class="card-footer">
+                            <a href="#pablo" class="btn btn-neutral btn-round card-link">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mr-auto">
+                <div class="card card-pricing" style="background: transparent;">
+                    <div class="card-body">
+                        <h6 class="card-category"  style="color: seashell;">Large Company</h6>
+                        <div class="card-image">
+                            <a href="#paper-kit">
+                                <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseSmall/ew-skynetplus-1.png?mtime=20180616103622" alt="Rounded Image" class="img-rounded img-responsive">
+                            </a>
+                        </div>
+                        <h3 class="card-title"  style="color: seashell;">$199</h3>
+                        <p class="card-description" style="color: white;">
+                            This is good if you are a freelancer of photographer.
+                        </p>
+                        <div class="card-footer">
+                            <a href="#pablo" class="btn btn-info btn-round card-link">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+    <div class="wrapper">
+        <div class="section latest-offers">
+              <div class="container">
+                  <div class="row mb-5">
+                      <div class="col" style=" text-align: center">
+                            <a href="#paper-kit" class="">
+                                    <img src="https://spartangeek.com/assets/images/gladius-logo.svg" alt="Rounded Image" class="img-rounded img-responsive">
+                            </a>
+                      </div>
+                  </div>
+  
+
+                  <div class="row">
+                       <div class="col-md-4">
+                           <div class="card card-product card-plain">
+                                <h6 class="card-category text-info">Green Velvet Dress</h6>
+                               <div class="card-image">
+                                   <a href="#paper-kit">
+                                       <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseSmall/cor-specalpha-1.png?mtime=20180616104106" alt="Rounded Image" class="img-rounded img-responsive">
+                                   </a>
+                                   <div class="card-body">
+                                       <div class="card-description">
+                                           <h5 class="card-title">ESPECIFICACIONES</h5>
+                                       </div>
+                                       <div class="row justify-content-md-center">
+                                                    <div class="col mt-3 p-0" >
+                                                            <a href="#paper-kit">
+                                                                <div class="author">
+                                                                        <img src="https://spartangeek.com/assets/images/hd-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                </div>    
+                                                                <span class="name" style="font-size:1em">1 TB</span>                                       
+                                                            </a>     
+                                                    </div>
+                                                    <div class="col mt-3 p-0">
+                                                            <a href="#paper-kit">
+                                                                <div class="author">
+                                                                        <img src="https://spartangeek.com/assets/images/procesor-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                </div>    
+                                                                <span class="name" style="font-size:1em">Ryzen 5</span>                                               
+                                                            </a>
+                                                     </div>
+                                                  
+                                       </div>
+                                       <div class="row justify-content-md-center">            
+                                                    <div class="col mt-3 pl-0">
+                                                            <a href="#paper-kit">
+                                                                <div class="author">
+                                                                        <img src="https://spartangeek.com/assets/images/ram-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                </div>    
+                                                                <span class="name" style="font-size:1em">8 GB DDR4</span>         
+                                                            </a>                                       
+                                                    </div>
+                                                    <div class="col mt-3 pl-0">
+                                                            <a href="#paper-kit">
+                                                                <div class="author">
+                                                                        <img src="https://spartangeek.com/assets/images/gpu.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                </div>    
+                                                                <span class="name" style="font-size:1em">GTX 1080 TI</span> 
+                                                            </a>                                          
+                                                    </div>
+                                                  
+                                            
+                                        </div>
+                                        <a href="/">                                            
+                                            <h1 class="card-title"><small>$</small>9,499<small>/mo</small></h1>
+                                        </a>
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                       <div class="col-md-4">
+                           <div class="card card-product card-plain">
+                                <h6 class="card-category text-info">Crepe and Organza Dress</h6>
+                               <div class="card-image">
+                                   <a href="#paper-kit">
+                                       <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseSmall/tt-view27-1.png?mtime=20180616104141" alt="Rounded Image" class="img-rounded img-responsive">
+                                   </a>
+                                   <div class="card-body">
+                                       <div class="card-description">
+                                           <h5 class="card-title">ESPECIFICACIONES</h5>
+                                           <div class="row justify-content-md-center">
+                                                <div class="col mt-3 p-0" >
+                                                  
+                                                        <div class="author">
+                                                                <img src="https://spartangeek.com/assets/images/hd-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                        </div>    
+                                                        <span class="name" style="font-size:1em">1 TB</span>                                       
+                                                    
+                                                    </div>
+                                                <div class="col mt-3 p-0">
+                                                        <div class="author">
+                                                                <img src="https://spartangeek.com/assets/images/procesor-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                        </div>    
+                                                        <span class="name" style="font-size:1em">Ryzen 5</span>                                               
+                                                </div>
+                                   </div>
+                                   <div class="row justify-content-md-center">            
+                                                <div class="col mt-3 pl-0">
+                                                        <div class="author">
+                                                                <img src="https://spartangeek.com/assets/images/ram-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                        </div>    
+                                                        <span class="name" style="font-size:1em">8 GB DDR4</span>                                               
+                                                </div>
+                                                <div class="col mt-3 pl-0">
+                                                           
+                                                        <div class="author">
+                                                                <img src="https://spartangeek.com/assets/images/gpu.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                        </div>    
+                                                        <span class="name" style="font-size:1em">GTX 1080 TI</span>                                           
+                                                </div>
+                                              
+                                        
+                                    </div>
+                                       </div>
+                                       <h1 class="card-title"><small>$</small>15,499<small>/mo</small></h1>
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                       <div class="col-md-4">
+                           <div class="card card-product card-plain">
+                                <h6 class="card-category text-info">Lace Mini Dress</h6>
+                               <div class="card-image">
+                                   <a href="#paper-kit">
+                                       <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseSmall/5af0e9d70777ee1951ddf90e_ac-battlehawk-3.png?mtime=20180608185122" alt="Rounded Image" class="img-rounded img-responsive">
+                                   </a>
+                                   <div class="card-body">
+                                       <div class="card-description">
+                                           <h5 class="card-title">ESPECIFICACIONES</h5>
+                                           <p class="card-description">This is a limited edition dress for the fall collection. Comes in 3 colours.</p>
+                                       </div>
+                                       <h1 class="card-title"><small>$</small>12,499<small>/mo</small></h1>
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                  </div>
+
+
+                  <div class="separator"></div>
+
+
+                  <div class="container">
+                        <div class="row mb-5">
+                            <div class="col" style=" text-align: center">
+                                  <a href="#paper-kit" class="">
+                                          <img src="https://spartangeek.com/assets/images/gladius-logo.svg" alt="Rounded Image" class="img-rounded img-responsive">
+                                  </a>
+                            </div>
+                        </div>
+        
+      
+                        <div class="row">
+                             <div class="col-md-4">
+                                 <div class="card card-product card-plain">
+                                      <h6 class="card-category text-info">Green Velvet Dress</h6>
+                                     <div class="card-image">
+                                         <a href="#paper-kit">
+                                             <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseSmall/cor-specalpha-1.png?mtime=20180616104106" alt="Rounded Image" class="img-rounded img-responsive">
+                                         </a>
+                                         <div class="card-body">
+                                             <div class="card-description">
+                                                 <h5 class="card-title">ESPECIFICACIONES</h5>
+                                             </div>
+                                             <div class="row justify-content-md-center">
+                                                          <div class="col mt-3 p-0" >
+                                                                  <a href="#paper-kit">
+                                                                      <div class="author">
+                                                                              <img src="https://spartangeek.com/assets/images/hd-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                      </div>    
+                                                                      <span class="name" style="font-size:1em">1 TB</span>                                       
+                                                                  </a>     
+                                                          </div>
+                                                          <div class="col mt-3 p-0">
+                                                                  <a href="#paper-kit">
+                                                                      <div class="author">
+                                                                              <img src="https://spartangeek.com/assets/images/procesor-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                      </div>    
+                                                                      <span class="name" style="font-size:1em">Ryzen 5</span>                                               
+                                                                  </a>
+                                                           </div>
+                                                        
+                                             </div>
+                                             <div class="row justify-content-md-center">            
+                                                          <div class="col mt-3 pl-0">
+                                                                  <a href="#paper-kit">
+                                                                      <div class="author">
+                                                                              <img src="https://spartangeek.com/assets/images/ram-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                      </div>    
+                                                                      <span class="name" style="font-size:1em">8 GB DDR4</span>         
+                                                                  </a>                                       
+                                                          </div>
+                                                          <div class="col mt-3 pl-0">
+                                                                  <a href="#paper-kit">
+                                                                      <div class="author">
+                                                                              <img src="https://spartangeek.com/assets/images/gpu.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                      </div>    
+                                                                      <span class="name" style="font-size:1em">GTX 1080 TI</span> 
+                                                                  </a>                                          
+                                                          </div>
+                                                        
+                                                  
+                                              </div>
+                                              <a href="/">                                            
+                                                  <h1 class="card-title"><small>$</small>9,499<small>/mo</small></h1>
+                                              </a>
+                                         </div>
+                                     </div>
+                                 </div>
+                              </div>
+                             <div class="col-md-4">
+                                 <div class="card card-product card-plain">
+                                      <h6 class="card-category text-info">Crepe and Organza Dress</h6>
+                                     <div class="card-image">
+                                         <a href="#paper-kit">
+                                             <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseSmall/tt-view27-1.png?mtime=20180616104141" alt="Rounded Image" class="img-rounded img-responsive">
+                                         </a>
+                                         <div class="card-body">
+                                             <div class="card-description">
+                                                 <h5 class="card-title">ESPECIFICACIONES</h5>
+                                                 <div class="row justify-content-md-center">
+                                                      <div class="col mt-3 p-0" >
+                                                        
+                                                              <div class="author">
+                                                                      <img src="https://spartangeek.com/assets/images/hd-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                              </div>    
+                                                              <span class="name" style="font-size:1em">1 TB</span>                                       
+                                                          
+                                                          </div>
+                                                      <div class="col mt-3 p-0">
+                                                              <div class="author">
+                                                                      <img src="https://spartangeek.com/assets/images/procesor-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                              </div>    
+                                                              <span class="name" style="font-size:1em">Ryzen 5</span>                                               
+                                                      </div>
+                                         </div>
+                                         <div class="row justify-content-md-center">            
+                                                      <div class="col mt-3 pl-0">
+                                                              <div class="author">
+                                                                      <img src="https://spartangeek.com/assets/images/ram-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                              </div>    
+                                                              <span class="name" style="font-size:1em">8 GB DDR4</span>                                               
+                                                      </div>
+                                                      <div class="col mt-3 pl-0">
+                                                                 
+                                                              <div class="author">
+                                                                      <img src="https://spartangeek.com/assets/images/gpu.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                              </div>    
+                                                              <span class="name" style="font-size:1em">GTX 1080 TI</span>                                           
+                                                      </div>
+                                                    
+                                              
+                                          </div>
+                                             </div>
+                                             <h1 class="card-title"><small>$</small>15,499<small>/mo</small></h1>
+                                         </div>
+                                     </div>
+                                 </div>
+                              </div>
+                             <div class="col-md-4">
+                                 <div class="card card-product card-plain">
+                                      <h6 class="card-category text-info">Lace Mini Dress</h6>
+                                     <div class="card-image">
+                                         <a href="#paper-kit">
+                                             <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseSmall/5af0e9d70777ee1951ddf90e_ac-battlehawk-3.png?mtime=20180608185122" alt="Rounded Image" class="img-rounded img-responsive">
+                                         </a>
+                                         <div class="card-body">
+                                             <div class="card-description">
+                                                 <h5 class="card-title">ESPECIFICACIONES</h5>
+                                                 <p class="card-description">This is a limited edition dress for the fall collection. Comes in 3 colours.</p>
+                                             </div>
+                                             <h1 class="card-title"><small>$</small>12,499<small>/mo</small></h1>
+                                         </div>
+                                     </div>
+                                 </div>
+                              </div>
+                        </div>
+
+                        <div class="separator"></div>
+
+
+                        <div class="container">
+                                <div class="row mb-5">
+                                    <div class="col" style=" text-align: center">
+                                          <a href="#paper-kit" class="">
+                                                  <img src="https://spartangeek.com/assets/images/gladius-logo.svg" alt="Rounded Image" class="img-rounded img-responsive">
+                                          </a>
+                                    </div>
+                                </div>
+                
+              
+                                <div class="row">
+                                     <div class="col-md-4">
+                                         <div class="card card-product card-plain">
+                                              <h6 class="card-category text-info">Green Velvet Dress</h6>
+                                             <div class="card-image">
+                                                 <a href="#paper-kit">
+                                                     <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseSmall/cor-specalpha-1.png?mtime=20180616104106" alt="Rounded Image" class="img-rounded img-responsive">
+                                                 </a>
+                                                 <div class="card-body">
+                                                     <div class="card-description">
+                                                         <h5 class="card-title">ESPECIFICACIONES</h5>
+                                                     </div>
+                                                     <div class="row justify-content-md-center">
+                                                                  <div class="col mt-3 p-0" >
+                                                                          <a href="#paper-kit">
+                                                                              <div class="author">
+                                                                                      <img src="https://spartangeek.com/assets/images/hd-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                              </div>    
+                                                                              <span class="name" style="font-size:1em">1 TB</span>                                       
+                                                                          </a>     
+                                                                  </div>
+                                                                  <div class="col mt-3 p-0">
+                                                                          <a href="#paper-kit">
+                                                                              <div class="author">
+                                                                                      <img src="https://spartangeek.com/assets/images/procesor-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                              </div>    
+                                                                              <span class="name" style="font-size:1em">Ryzen 5</span>                                               
+                                                                          </a>
+                                                                   </div>
+                                                                
+                                                     </div>
+                                                     <div class="row justify-content-md-center">            
+                                                                  <div class="col mt-3 pl-0">
+                                                                          <a href="#paper-kit">
+                                                                              <div class="author">
+                                                                                      <img src="https://spartangeek.com/assets/images/ram-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                              </div>    
+                                                                              <span class="name" style="font-size:1em">8 GB DDR4</span>         
+                                                                          </a>                                       
+                                                                  </div>
+                                                                  <div class="col mt-3 pl-0">
+                                                                          <a href="#paper-kit">
+                                                                              <div class="author">
+                                                                                      <img src="https://spartangeek.com/assets/images/gpu.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                              </div>    
+                                                                              <span class="name" style="font-size:1em">GTX 1080 TI</span> 
+                                                                          </a>                                          
+                                                                  </div>
+                                                                
+                                                          
+                                                      </div>
+                                                      <a href="/">                                            
+                                                          <h1 class="card-title"><small>$</small>9,499<small>/mo</small></h1>
+                                                      </a>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                      </div>
+                                     <div class="col-md-4">
+                                         <div class="card card-product card-plain">
+                                              <h6 class="card-category text-info">Crepe and Organza Dress</h6>
+                                             <div class="card-image">
+                                                 <a href="#paper-kit">
+                                                     <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseSmall/tt-view27-1.png?mtime=20180616104141" alt="Rounded Image" class="img-rounded img-responsive">
+                                                 </a>
+                                                 <div class="card-body">
+                                                     <div class="card-description">
+                                                         <h5 class="card-title">ESPECIFICACIONES</h5>
+                                                         <div class="row justify-content-md-center">
+                                                              <div class="col mt-3 p-0" >
+                                                                
+                                                                      <div class="author">
+                                                                              <img src="https://spartangeek.com/assets/images/hd-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                      </div>    
+                                                                      <span class="name" style="font-size:1em">1 TB</span>                                       
+                                                                  
+                                                                  </div>
+                                                              <div class="col mt-3 p-0">
+                                                                      <div class="author">
+                                                                              <img src="https://spartangeek.com/assets/images/procesor-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                      </div>    
+                                                                      <span class="name" style="font-size:1em">Ryzen 5</span>                                               
+                                                              </div>
+                                                 </div>
+                                                 <div class="row justify-content-md-center">            
+                                                              <div class="col mt-3 pl-0">
+                                                                      <div class="author">
+                                                                              <img src="https://spartangeek.com/assets/images/ram-icn.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                      </div>    
+                                                                      <span class="name" style="font-size:1em">8 GB DDR4</span>                                               
+                                                              </div>
+                                                              <div class="col mt-3 pl-0">
+                                                                         
+                                                                      <div class="author">
+                                                                              <img src="https://spartangeek.com/assets/images/gpu.svg" alt="Circle Image" class="img-circle img-no-padding img-responsive img-raised">
+                                                                      </div>    
+                                                                      <span class="name" style="font-size:1em">GTX 1080 TI</span>                                           
+                                                              </div>
+                                                            
+                                                      
+                                                  </div>
+                                                     </div>
+                                                     <h1 class="card-title"><small>$</small>15,499<small>/mo</small></h1>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                      </div>
+                                     <div class="col-md-4">
+                                         <div class="card card-product card-plain">
+                                              <h6 class="card-category text-info">Lace Mini Dress</h6>
+                                             <div class="card-image">
+                                                 <a href="#paper-kit">
+                                                     <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseSmall/5af0e9d70777ee1951ddf90e_ac-battlehawk-3.png?mtime=20180608185122" alt="Rounded Image" class="img-rounded img-responsive">
+                                                 </a>
+                                                 <div class="card-body">
+                                                     <div class="card-description">
+                                                         <h5 class="card-title">ESPECIFICACIONES</h5>
+                                                         <p class="card-description">This is a limited edition dress for the fall collection. Comes in 3 colours.</p>
+                                                     </div>
+                                                     <h1 class="card-title"><small>$</small>12,499<small>/mo</small></h1>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                      </div>
+                                </div>
+
+
+
+              </div>
+       </div><!-- section -->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="features-3">
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="container">
+                                <h2 class="title">Your life will be much easier</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="info info-horizontal">
+                                    <div class="icon icon-success">
+                                        <i class="nc-icon nc-layout-11"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Components</h4>
+                                        <p>The kit comes with a huge number of components designed to look perfect together.</p>
+                                        <a href="#paper-kit" class="btn btn-link">See more</a>
+                                    </div>
+                                </div>
+                                <div class="info info-horizontal">
+                                    <div class="icon icon-warning">
+                                        <i class="nc-icon nc-palette"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Beautiful Gallery</h4>
+                                        <p>Spend your time generating new ideas. You don't have to think of implementing anymore.</p>
+                                        <a href="#paper-kit" class="btn btn-link">See more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info info-horizontal">
+                                    <div class="icon icon-danger">
+                                        <i class="nc-icon nc-touch-id"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Secured</h4>
+                                        <p>Larger, yet dramatically thinner. More powerful, but remarkably power is efficient.</p>
+                                        <a href="#paper-kit" class="btn btn-link">See more</a>
+                                    </div>
+                                </div>
+                                <div class="info info-horizontal">
+                                    <div class="icon icon-primary">
+                                        <i class="nc-icon nc-delivery-fast"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Fast Prototyping</h4>
+                                        <p>Medium has a new head of product, while the startup behind the defunct texting app...</p>
+                                        <a href="#paper-kit" class="btn btn-link">See more</a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-md-5 ml-auto align-self-end">
+                        <div class="card-image">
+                            <a href="#paper-kit">
+                                <img src="https://s3-us-west-1.amazonaws.com/spartangeek/cc/_showcaseMedium/win-sframe-1.png?mtime=20180616104557" alt="Rounded Image" class="img-rounded img-responsive">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+
+
+<footer class="footer footer-black footer-big">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 text-center col-sm-3 col-12 ml-auto mr-auto">
+                    <h4>Creative Tim</h4>
+                    <div class="social-area">
+                        <a class="btn btn-just-icon btn-round btn-facebook">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-just-icon btn-round btn-twitter">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-just-icon btn-round btn-google">
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-9 col-12 ml-auto mr-auto">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-6">
+                            <div class="links">
+                                <ul class="uppercase-links stacked-links">
+                                    <li>
+                                        <a href="#paper-kit">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#paper-kit">
+                                            Discover
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#paper-kit">
+                                            Blog
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#paper-kit">
+                                            Live Support
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#paper-kit">
+                                            Money Back
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-6">
+                            <div class="links">
+                                <ul class="uppercase-links stacked-links">
+                                    <li>
+                                        <a href="#paper-kit">
+                                           Contact Us
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#paper-kit">
+                                           We're Hiring
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#paper-kit">
+                                           About Us
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-6">
+                            <div class="links">
+                                <ul class="uppercase-links stacked-links">
+                                    <li>
+                                        <a href="#paper-kit">
+                                            Portfolio
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#paper-kit">
+                                           How it works
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#paper-kit">
+                                           Testimonials
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-6">
+                            <div class="links">
+                                <ul class="stacked-links">
+                                    <li>
+                                        <h4>13.723<br> <small>accounts</small></h4>
+                                    </li>
+                                    <li>
+                                        <h4>55.234<br> <small>downloads</small></h4>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="copyright">
+                        <div class="pull-left">
+                            © <script>document.write(new Date().getFullYear())</script>2018 Creative Tim, made with love
+                        </div>
+                        <div class="links pull-right">
+                            <ul>
+                                <li>
+                                    <a href="#paper-kit">
+                                        Company Policy
+                                    </a>
+                                </li>
+                                |
+                                <li>
+                                    <a href="#paper-kit">
+                                        Terms
+                                    </a>
+                                </li>
+                                |
+                                <li>
+                                    <a href="#paper-kit">
+                                        Privacy
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+        
+        
+
+
+              
+        
+
+
+
+
+
+
+       
+
+
+
+
+    

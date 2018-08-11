@@ -59,6 +59,17 @@ p {
   margin-bottom: 5px;
 }
 
+.moving-clouds{
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 250.625em;
+  height: 43.75em;
+  -webkit-animation: cloudLoop 80s linear infinite;
+  animation: cloudLoop 80s linear infinite;
+}
+
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
   color: #9A9A9A;
   line-height: 1.5em;
