@@ -1,17 +1,16 @@
-.title-brand {
-    max-width: 730px;
-    margin: 0 auto;
-    position: relative;
-    text-align: center;
-    color: #FFFFFF;
-    display: block;
+
+
+
+
+
+#cardI{
+    -webkit-transition: .4s; /* For Safari 3.1 to 6.0 */
+    transition: .4s;
 }
 
-.angular-logo {
-    max-width: 90px;
-    margin: -50px auto 45px;
+#cardI:hover{
+    opacity: .4;
 }
 
-.angular-logo img {
-    width: 100%;
-}
+
+

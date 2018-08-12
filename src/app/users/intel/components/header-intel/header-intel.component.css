@@ -1,0 +1,17 @@
+.title-brand {
+    max-width: 730px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    color: #FFFFFF;
+    display: block;
+}
+
+.angular-logo {
+    max-width: 90px;
+    margin: -50px auto 45px;
+}
+
+.angular-logo img {
+    width: 100%;
+}
