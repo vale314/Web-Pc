@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { Location } from '../../../../node_modules/@angular/common';
+import { ElementRef, ViewChild, Renderer2 } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-navbar',
@@ -8,13 +11,20 @@ import { Location } from '../../../../node_modules/@angular/common';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private location:Location){
+    background;
+
+  @ViewChild('changeClass') elementRef: ElementRef;
+  constructor(private location:Location,private renderer: Renderer2){
+      this.background="#FFFFFF";
    }
    
   ngOnInit(){
+     
   }
 
-
+  ngAfterViewInit(){
+    this.renderer.addClass(this.elementRef.nativeElement, 'intel');
+  }
   
   isHome() {
     var titlee = this.location.prepareExternalUrl(this.location.path());

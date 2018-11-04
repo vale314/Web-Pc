@@ -1,0 +1,10 @@
+#cardI{
+    -webkit-transition: .4s; /* For Safari 3.1 to 6.0 */
+    transition: .4s;
+}
+
+#cardI:hover{
+    opacity: .4;
+}
+
+

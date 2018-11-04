@@ -10,6 +10,10 @@ import { PricePcAllComponent } from './users/intel/components/price-pc-all/price
 import { DetailsPcCardComponent } from './users/intel/components/details-pc-card/details-pc-card.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeIntelComponent } from './users/intel/home-intel/home-intel.component';
+import { DetailsIntelPcComponent } from './users/intel/details-pc/details-pc.component';
+import { AppRoutingModule } from './app-routing.routing';
+import { PageNotFoundComponent } from './users/page-not-found/page-not-found.component';
+import { HomePageComponent } from './users/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +24,16 @@ import { HomeIntelComponent } from './users/intel/home-intel/home-intel.componen
     PricePcAllComponent,
     DetailsPcCardComponent,
     FooterComponent,
-    HomeIntelComponent
+    HomeIntelComponent,
+    DetailsIntelPcComponent,
+    PageNotFoundComponent,
+    HomePageComponent,
+    
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    AppRoutingModule
 
   ],
   providers: [],
