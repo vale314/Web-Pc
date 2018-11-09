@@ -14,6 +14,12 @@ import { DetailsIntelPcComponent } from './users/intel/details-pc/details-pc.com
 import { AppRoutingModule } from './app-routing.routing';
 import { PageNotFoundComponent } from './users/page-not-found/page-not-found.component';
 import { HomePageComponent } from './users/home-page/home-page.component';
+import { SimpleHeaderIntelComponent } from './users/intel/components/simple-header-intel/simple-header-intel.component';
+import { PcDetailComponent } from './users/components/pc-detail/pc-detail.component';
+import { PcInfoComponent } from './users/components/pc-info/pc-info.component';
+import { PcSimilarComponent } from './users/components/pc-similar/pc-similar.component';
+import { AmdComponent } from './users/amd/amd.component';
+import { HeaderAmdComponent } from './users/amd/components/header-amd/header-amd.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +34,13 @@ import { HomePageComponent } from './users/home-page/home-page.component';
     DetailsIntelPcComponent,
     PageNotFoundComponent,
     HomePageComponent,
+    SimpleHeaderIntelComponent,
+    PcDetailComponent,
+    PcInfoComponent,
+    PcSimilarComponent,
+    AmdComponent,
+    HeaderAmdComponent,
+
     
   ],
   imports: [

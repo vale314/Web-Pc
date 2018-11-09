@@ -1,6 +1,7 @@
 import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { Location } from '../../../../node_modules/@angular/common';
 import { ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import { Router } from '../../../../node_modules/@angular/router';
 
 
 
@@ -14,12 +15,16 @@ export class NavbarComponent implements OnInit {
     background;
 
   @ViewChild('changeClass') elementRef: ElementRef;
-  constructor(private location:Location,private renderer: Renderer2){
+  constructor(private location:Location,private renderer: Renderer2,private router:Router){
       this.background="#FFFFFF";
    }
    
   ngOnInit(){
-     
+    var n = this.router.url.indexOf("intel");
+    if(n>0)
+        this.background="intel"
+    else
+        this.background="amd"
   }
 
   ngAfterViewInit(){
